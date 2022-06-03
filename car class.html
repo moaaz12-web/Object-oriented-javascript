@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Car{
+            constructor (brandName, priceNew, color, odometer){
+                this.brandName = brandName;
+                this.priceNew = priceNew;
+                this.color = color;
+                this.odometer = odometer;
+            }
+
+            getPrice(){return this.priceNew}
+            setPrice(p) {this.priceNew = p}
+
+            getcaolor(){return this.color}
+            setcolor(c){this.color = c}
+
+            getBrand(){return this.brandName}
+            setBrand(b){this.brandName = b}
+
+            getOdo(){return this.odometer}
+            setOdo(o){this.odometer = o}
+
+        
+
+
+            getPriceAfterUsed(){
+                let afterUse = this.priceNew * (1 - (this.odometer/600000))
+                return afterUse;
+            }
+
+            updateMileage(travelDistance){
+                let res = travelDistance/this.odometer;
+                return res;
+            }
+
+            outputDetails(){
+                let div = document.createElement('div')
+                div.style.width = "40vw";
+                div.style.height = "max-content"
+                div.style.border = "2px solid red"
+
+                let color = "The color of car is " + this.color;
+                let odometer =`The odometer is ${this.odometer}.`;
+                let priceNew = `The original price of car was ${this.priceNew}`;
+                let brandName = `The brand name of car is ${this.brandName}`;
+                let used = this.getPriceAfterUsed()
+                let priceused = `The used price of car is ${used}.`;
+
+                let br = "<br>";
+                let hr = "<hr>"
+
+                div.innerHTML = brandName + br + color + br + priceNew + br + odometer + br + priceused;
+
+                div.style.color = "crimson";
+                div.style.backgroundColor = "khaki";
+                document.body.appendChild(div);
+            }
+
+        }
+
+        let car = new Car("Toyota", 800000, "black", 30)
+        car.outputDetails()
+        span = document.createElement('span')
+        span.innerHTML = "<hr> Updating Mileage: <hr>"
+        document.body.appendChild(span)
+        car.updateMileage(20000)
+        car.outputDetails()
+
+        span2 = document.createElement('span')
+        span2.innerHTML = "<hr> Updating attributes: <hr>"
+        document.body.appendChild(span2)
+
+        car.setBrand('Corolla')
+        car.setOdo(50)
+        car.setPrice(1000000)
+        car.setcolor('white')
+
+        car.outputDetails()
+    </script>
+    
+</body>
+</html>

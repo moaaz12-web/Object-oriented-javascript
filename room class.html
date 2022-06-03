@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Room{
+            constructor (length, breadth, height){
+                this.length = length;
+                this.breadth = breadth;
+                this.height = height;
+            }
+
+
+            getLength = () => {return this.name}
+            getBreadth = () => {return this.breadth}
+            getHeight = () => {return this.height}
+
+            setLength = (l) => {this.length = l}
+            setBreadth = (b) => {this.breadth = b}
+            setHeight = (h) => {this.height = h}
+
+
+            calculateArea = () => {
+                return this.length * this.breadth;
+            }
+
+            calculateVolume = () => {
+                return this.length * this.breadth * this.height;
+            }
+
+            display = () => {
+                let div = document.createElement('div')
+                div.innerHTML = "Length of room is " + this.length + "<hr>" + "Breadth of room is " + this.breadth + "<hr>" + "Height of room is " + this.height + "<hr>" + "Area is " + this.calculateArea() + "<hr>" + "Volume is " + this.calculateVolume();
+                document.body.appendChild(div)
+            }
+        }
+
+        let r1 = new Room(10,10,10)
+        r1.display()
+
+        r1.setBreadth(30);
+        r1.setHeight(24);
+        r1.setLength(44);
+
+        let divv = document.createElement('div')
+        divv.innerHTML = " <hr>"+"After setting the attributes of room, room data is: " + "<hr>"
+        divv.style.color = "red"
+        divv.style.fontWeight = "bold"
+        document.body.appendChild(divv)
+
+        r1.display()
+
+    </script>
+    
+</body>
+</html>

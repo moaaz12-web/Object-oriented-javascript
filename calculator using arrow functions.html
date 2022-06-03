@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            border: 3px solid slateblue;
+            width:30vw;
+            height: max-content;
+            margin: 30px 0px 0px 60px;
+        }
+
+        .row{
+            border: 1px solid lightcoral;
+            width:30vw;
+            height: max-content;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+        }
+
+
+
+        .col-4:hover{
+            background-color: steelblue;
+        }
+
+        .col-8{
+            text-align: center;
+            width:70%;
+            border: 1px solid black;
+            background-color: rgb(177, 171, 171);
+            color: white;
+        }
+
+        .col-4{
+            text-align: center;
+            width: 30%;
+            border: 1px solid black;
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="console"></div>
+
+        <div class="row" style="text-align: center; color:rebeccapurple">OTUPUT</div>
+
+        <div class="row">
+            <div class="col-8">ADDITION</div>
+            <div class="col-4" id="add">+</div>
+        </div>
+        <div class="row">
+            <div class="col-8">SUBTRACTION</div>
+            <div class="col-4" id="sub">-</div>
+        </div>
+        <div class="row">
+            <div class="col-8">MULTIPLICATION</div>
+            <div class="col-4" id="mult">*</div>
+        </div>
+        <div class="row">
+            <div class="col-8">DIVISION</div>
+            <div class="col-4" id="div">/</div>
+        </div>
+    </div>
+    <script>
+
+        addbtn = document.getElementById('add')
+        subbtn = document.getElementById('sub')
+        multbtn = document.getElementById('mult')
+        divbtn = document.getElementById('div')
+
+        addbtn.addEventListener('click', ()=>{
+            num1 = parseInt(prompt("Enter the first number: "))
+            num2 = parseInt(prompt("Enter the second number:"))
+            outs = document.querySelector('.row')
+            outs.innerHTML = "The result of your operation is " + (num1 + num2);
+
+        }, false)
+
+        subbtn.addEventListener('click', ()=>{
+            num1 = parseInt(prompt("Enter the first number: "))
+            num2 = parseInt(prompt("Enter the second number:"))
+            outs = document.querySelector('.row')
+            outs.innerHTML = "The result of your operation is " + (num1 - num2);
+
+        }, false)
+
+        multbtn.addEventListener('click', ()=>{
+            num1 = parseInt(prompt("Enter the first number: "))
+            num2 = parseInt(prompt("Enter the second number:"))
+            outs = document.querySelector('.row')
+            outs.innerHTML = "The result of your operation is " + (num1 * num2);
+
+        }, false)
+
+        divbtn.addEventListener('click', ()=>{
+            num1 = parseInt(prompt("Enter the first number: "))
+            num2 = parseInt(prompt("Enter the second number:"))
+            outs = document.querySelector('.row')
+            outs.innerHTML = "The result of your operation is " + (num1 / num2);
+
+        }, false)
+        
+    </script>
+</body>
+</html>
